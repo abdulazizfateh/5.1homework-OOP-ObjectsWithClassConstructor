@@ -55,7 +55,6 @@ const points3 = games => games.reduce((totalPoints, game) => totalPoints + (game
 
 
 
-
 // P6 
 function greet(name) {
     if (name === "Johnny")
@@ -72,3 +71,57 @@ const areaOrPerimeter = function (l, w) {
     return (l + w) * 2;
 };
 console.log(areaOrPerimeter(4, 4));
+
+
+
+// P8
+const updateLight = current => current === "green" ? "yellow" : current === "red" ? "green" : "red";
+console.log(updateLight("green"));
+
+
+
+// P9
+const otherAngle = (a, b) => 180 - a - b;
+console.log(otherAngle(10, 40));
+
+
+
+// P10
+const setAlarm = (employed, vacation) => employed && !vacation;
+
+
+
+// P11.1 - Using unary+ inside the reduce() method to convert string to a number type
+const sumMix = x => x.reduce((sum, item) => sum + +item, 0);
+
+// P11.2 - Using map() method to loop every item and convert them to a number type, and then sum them up using reduce
+{
+    const sumMix = x => x.map((item) => +item).reduce((sum, item) => sum + item, 0);
+}
+
+
+
+// P12
+const sumArray = array => {
+    if (!array || array.length <= 1 || Number(array)) { // !Array.isArray(array)
+        return 0;
+    }
+    let min = array[0];
+    let max = array[0];
+    for (let item of array) {
+        if (item < min) {
+            min = item;
+        }
+        if (item > max) {
+            max = item;
+        }
+    }
+    return array.reduce((sum, item) => sum + item, 0) - min - max;
+}
+console.log(sumArray([-10, 20, 30, -3, 4, -9]));
+
+
+
+// P13
+const goals = (laLigaGoals, copaDelReyGoals, championsLeagueGoals) => laLigaGoals + copaDelReyGoals + championsLeagueGoals;
+console.log(goals(43, 6, 10));
